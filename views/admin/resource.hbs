@@ -1,0 +1,146 @@
+<main>
+    <!-- Favourite Places Start -->
+    <div class="favourite-place place-padding">
+        <div class="container">
+            <!-- image gallareya -->
+            <div class="whole-wrap">
+                <div class="container">
+                    <div class="my-5">
+                        <!-- <h3>Yoshlar texnoparkining qurilish loyihasi</h3> -->
+                        <div class="row mb-5">
+                            <div class="col-lg-12">
+                                <div class="section-tittle text-center">
+                                    <span>Surxondaryo</span>
+                                    <h1>Yoshlar texnoparkining qurilish loyihasi</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button class="col-6 btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">
+                                    Rasm qo'shish
+                                </button>
+
+                                {{!-- moldal create --}}
+                                <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Rasm qo'shish</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="/admin/resource/create" method="post"
+                                                enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <div class="mb-1">
+                                                        <label class="form-label" for="">Rasm yuklash</label>
+                                                        <input type="file" class="form-control" name="image">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Qaytish</button>
+                                                    <button type="submit" class="btn btn-primary">Qo'shish</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gallery-item">
+                            {{#if resources}}
+                            {{#each resources}}
+                            <div class="col-md-4">
+                                <a href="{{imageUrl}}" class="img-pop-up">
+                                    <div class="single-gallery-image" style="background: url({{imageUrl}});">
+                                    </div>
+                                </a>
+                                <div class="text-center my-2">
+                                    <button class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#delete-{{_id}}">
+                                        <i class="ri-delete-bin-5-fill"></i>
+                                    </button>
+
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#update-{{_id}}">
+                                        <i class="ri-file-edit-fill"></i>
+                                    </button>
+                                </div>
+
+                                {{!-- moldal delete --}}
+                                <div class="modal fade" id="delete-{{_id}}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Rasmni o'chirish
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="/admin/resource/delete/{{_id}}" method="post">
+                                                <div class="modal-body">
+                                                    <div class="col-12 text-center">
+                                                        <img src="{{imageUrl}}" class="col-6">
+                                                        <h3>Ushbu rasmni o'chirmoqchimisiz</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Qaytish</button>
+                                                    <button type="submit" class="btn btn-primary">O'chirish</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{!-- moldal update --}}
+                                <div class="modal fade" id="update-{{_id}}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Rasm o'zgartirish
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="/admin/resource/update/{{_id}}" method="post"
+                                                enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <div class="col-12 text-center">
+                                                        <img src="{{imageUrl}}" class="col-6">
+                                                        <h4>Ushbu rasmni o'zgartirmoqchimisiz</h4>
+                                                    </div>
+                                                    <div class="mb-1">
+                                                        <label class="form-label" for="">Rasm yuklash</label>
+                                                        <input type="file" class="form-control" name="image" onchange="PreviewImage();">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Qaytish</button>
+                                                    <button type="submit" class="btn btn-primary">Qo'shish</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            {{/each}}
+                            {{else}}
+                            <h2 class="text-center">Hozircha malumotlar yo'q</h2>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Favourite Places End -->
+</main>

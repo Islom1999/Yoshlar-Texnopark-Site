@@ -1,0 +1,221 @@
+<main>
+
+    <!-- Home Header -->
+    <div class="slider-area my-5 py-5">
+        <h3 class="text-center mb-5">Bosh sahifa headeri</h3>
+        <div class="slider-active">
+            <div class="single-slider hero-overly  slider-height d-flex align-items-center"
+                data-background="{{pages.homeHeader.bgImage}}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-9 col-md-9">
+                            <div class="hero__caption">
+                                <h1 style="font-size: 75px;"><span>{{pages.homeHeader.title}}</span> </h1>
+                                <p>{{pages.homeHeader.descr}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- moldal update --}}
+        <div class="text-center my-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update-home">
+                <i class="ri-file-edit-fill"></i>
+            </button>
+        </div>
+        {{!-- moldal update --}}
+        <div class="modal fade" id="update-home" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Rasm o'zgartirish
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/admin/pages/headers/update/header" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label" for="">Rasm yuklash</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="">Sarlavha</label>
+                                <input required type="text" class="form-control" name="title"
+                                    value="{{pages.homeHeader.title}}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="">Description</label>
+                                <textarea required class="form-control"
+                                    name="descr">{{pages.homeHeader.descr}}</textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Qaytish</button>
+                            <button type="submit" class="btn btn-primary">O'zgartirish</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- About Header --}}
+    <div class="slider-area my-5 py-5">
+        <h3 class="text-center mb-5">Bosh sahifa headeri</h3>
+        <div class="single-slider slider-height2 d-flex align-items-center"
+            data-background="{{pages.aboutHeader.bgImage}}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>{{pages.aboutHeader.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- moldal update --}}
+        <div class="text-center my-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update-about">
+                <i class="ri-file-edit-fill"></i>
+            </button>
+        </div>
+        {{!-- moldal update --}}
+        <div class="modal fade" id="update-about" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Rasm o'zgartirish
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/admin/pages/headers/update/about" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label" for="">Rasm yuklash</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="">Sarlavha</label>
+                                <input required type="text" class="form-control" name="title"
+                                    value="{{pages.aboutHeader.title}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Qaytish</button>
+                            <button type="submit" class="btn btn-primary">O'zgartirish</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Resource Header --}}
+    <div class="slider-area my-5 py-5">
+        <h3 class="text-center mb-5">Yoshlar texnoparki headeri</h3>
+        <div class="single-slider slider-height2 d-flex align-items-center"
+            data-background="{{pages.resourceHeader.bgImage}}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>{{pages.resourceHeader.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- moldal update --}}
+        <div class="text-center my-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update-resource">
+                <i class="ri-file-edit-fill"></i>
+            </button>
+        </div>
+        {{!-- moldal update --}}
+        <div class="modal fade" id="update-resource" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Rasm o'zgartirish
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/admin/pages/headers/update/resource" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label" for="">Rasm yuklash</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="">Sarlavha</label>
+                                <input required type="text" class="form-control" name="title"
+                                    value="{{pages.resourceHeader.title}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Qaytish</button>
+                            <button type="submit" class="btn btn-primary">O'zgartirish</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- Contact Header --}}
+    <div class="slider-area my-5 py-5">
+        <h3 class="text-center mb-5">Aloqalar headeri</h3>
+        <div class="single-slider slider-height2 d-flex align-items-center"
+            data-background="{{pages.contactHeader.bgImage}}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center">
+                            <h2>{{pages.contactHeader.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- moldal update --}}
+        <div class="text-center my-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#update-contact">
+                <i class="ri-file-edit-fill"></i>
+            </button>
+        </div>
+        {{!-- moldal update --}}
+        <div class="modal fade" id="update-contact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Rasm o'zgartirish
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/admin/pages/headers/update/contact" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label" for="">Rasm yuklash</label>
+                                <input type="file" class="form-control" name="image">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="">Sarlavha</label>
+                                <input required type="text" class="form-control" name="title"
+                                    value="{{pages.contactHeader.title}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Qaytish</button>
+                            <button type="submit" class="btn btn-primary">O'zgartirish</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>

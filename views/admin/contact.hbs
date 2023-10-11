@@ -1,0 +1,69 @@
+<main>
+    <div class="">
+        <h3 class="text-center my-5">Sizga Jo'natilgan xatlar</h3>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ism familiya</th>
+                        <th scope="col">Tel raqami</th>
+                        <th scope="col">Savol yoki taklifini</th>
+                        <th scope="col">Vaqti</th>
+                        <th scope="col">O'chirish</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if messages}}
+                        {{#each messages}}
+                            <tr>
+                                <th scope="row" class="align-middle">{{@index}}</th>
+                                <td class="align-middle">{{fullName}}</td>
+                                <td class="align-middle">{{phone}}</td>
+                                <td class="align-middle">{{message}}</td>
+                                <td class="align-middle">{{formatDate createdAt}}</td>
+                                <td class="align-middle">
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-{{_id}}">
+                                        <i class="ri-delete-bin-5-fill"></i>
+                                    </button>
+
+                                    {{!-- moldal delete --}}
+                                    <div class="modal fade" id="delete-{{_id}}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Xabarni o'chirish
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form action="/admin/message/delete/{{_id}}" method="post">
+                                                    <div class="modal-body">
+                                                        <div class="col-12 text-center">
+                                                            <h3>Ushbu xabarni o'chirmoqchimisiz</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-bs-dismiss="modal">Qaytish</button>
+                                                        <button type="submit" class="btn btn-primary">O'chirish</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    {{else}}
+                        <tr>
+                            <td colspan="5" class="text-center py-5"><h3>Hozircha xatlar yo'q</h3></td>
+                        </tr>
+                    {{/if}}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</main>

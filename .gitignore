@@ -1,0 +1,5 @@
+.env
+/node_modules/
+/shablon-site/
+/shablon-admin/
+/_database_/

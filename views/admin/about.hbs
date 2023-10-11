@@ -1,0 +1,85 @@
+<main>
+    <div class="support-company-area servic-padding fix mb-5 pb-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="support-location-img mb-50">
+                        <img src="{{pages.aboutContent.imageUrl}}" alt="">
+                        <div class="support-img-cap">
+                            <span>{{pages.aboutContent.imageTitle}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="right-caption">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle section-tittle2">
+                            <span>{{pages.aboutContent.subTitle}}</span>
+                            <h3>{{pages.aboutContent.title}}</h3>
+                        </div>
+                        <div class="support-caption">
+                            <p>{{{pages.aboutContent.textLeft}}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <p>{{{pages.aboutContent.textBottom}}}</p>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center mt-5">Malumotlarni o'zgartirish</h2>
+                    <form name="myForm" action="/admin/pages/headers/update/aboutcontent" method="post"
+                        enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Image</label>
+                            <input class="form-control" type="file" name="image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Image Title</label>
+                            <input required class="form-control" type="text" value="{{pages.aboutContent.imageTitle}}"
+                                name="imageTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">SubTitle</label>
+                            <input required class="form-control" type="text" value="{{pages.aboutContent.subTitle}}"
+                                name="subTitle">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Title</label>
+                            <input required class="form-control" type="text" value="{{pages.aboutContent.title}}" name="title">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Text Left</label>
+                            <textarea required name="textLeft" id="editor1">
+                                {{{pages.aboutContent.textLeft}}}
+                            </textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Text Bottom</label>
+                            <textarea required name="textBottom" id="editor2">
+                                {{{pages.aboutContent.textBottom}}}
+                            </textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="submit" class="btn btn-primary">O'zgartirish</button>
+                        </div>
+                    </form>
+                    <script>
+                        ClassicEditor
+                            .create(document.querySelector('#editor1'))
+                            .catch(error => {
+                                console.error(error);
+                            });
+                        ClassicEditor
+                            .create(document.querySelector('#editor2'))
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
